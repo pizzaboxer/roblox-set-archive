@@ -63,7 +63,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet("{id}/Thumbnail")]
-    public async Task<IActionResult> GetThumbnail(int id)
+    public async Task<IActionResult> GetThumbnail(long id)
     {
         // HttpClient httpClient = _httpClientFactory.CreateClient("Roblox");
         // HttpResponseMessage httpResponseMessage = await httpClient.GetAsync($"/avatar/request-thumbnail-fix?userId={id}&imageFormat=Png&thumbnailFormatId=254&dummy=false");
