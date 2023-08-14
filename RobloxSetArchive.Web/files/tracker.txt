@@ -1,0 +1,69 @@
+MACHINE PREFERENCES:
+	kinery's server : 4 processes 8 threads
+	my server : 2 processes 24 threads
+	jack's server : 2 processes 24 threads
+	hitius' server : 2 processes 24 threads
+
+1 - 100k         : me                : DONE
+100k - 200k      : me                : DONE : STARTED 22/05/2022 16:13 : FINISHED 22/05/2022 16:50
+200k - 300k      : multako           : DONE : STARTED 22/05/2022 17:02 : FINISHED 22/05/2022 17:37 : RECEIVED
+300k - 400k      : kinery's server   : DONE : STARTED 22/05/2022 17:06 : FINISHED 22/05/2022 17:42 : RECEIVED
+400k - 500k      : me                : DONE : STARTED 22/05/2022 17:11 : FINISHED 22/05/2022 17:48
+500k - 600k      : multako           : DONE : STARTED 22/05/2022 17:40 : FINISHED 22/05/2022 18:09 : RECEIVED
+600k - 800k      : kinery's server   : DONE : STARTED 22/05/2022 19:24 : FINISHED 22/05/2022 20:20 : RECEIVED
+800k - 1m        : me                : DONE : STARTED 22/05/2022 17:50 : FINISHED 22/05/2022 19:32
+1m - 1.2m        : multako           : DONE : STARTED 22/05/2022 18:15 : FINISHED 22/05/2022 19:16 : RECEIVED
+1.2m - 1.4m      : trout             : DONE : STARTED 22/05/2022 18:25 : FINISHED 22/05/2022 19:09 : RECEIVED
+1.4m - 1.7m      : trout             : DONE : STARTED 22/05/2022 19:17 : FINISHED 22/05/2022 20:21 : RECEIVED
+1.7m - 2m        : me                : DONE : STARTED 22/05/2022 19:40 : FINISHED 22/05/2022 21:43
+2m - 2.5m        : kinery's server   : DONE : STARTED 22/05/2022 20:44 : FINISHED 22/05/2022 22:44 : RECEIVED
+2.5m - 3m        : kinery's server   : DONE : STARTED 22/05/2022 22:46 : FINISHED 23/05/2022 00:00 : RECEIVED
+3m - 3.1m        : me                : DONE : STARTED 22/05/2022 21:44 : FINISHED 22/05/2022 22:11
+3.1m - 3.11m     : me                : DONE : STARTED 22/05/2022 22:26 : FINISHED 22/05/2022 22:33
+3.11m - 3.115m   : me                : DONE : STARTED 22/05/2022 22:35 : FINISHED 22/05/2022 22:38
+3.115m - 3.12m   : me                : DONE : STARTED 22/05/2022 22:39 : FINISHED 22/05/2022 22:41
+3.12m - 3.125m   : me                : DONE : STARTED 22/05/2022 22:42 : FINISHED 22/05/2022 22:43
+3.125m - 5m      : me                : DONE : STARTED 22/05/2022 22:53 : FINISHED 23/05/2022 05:48
+5m - 6m          : me                : DONE : STARTED 22/05/2022 05:55 : FINISHED 23/05/2022 08:57
+6m - 7m          : kinery's server   : DONE : STARTED 23/05/2022 06:00 : FINISHED 23/05/2022 08:19 : RECEIVED
+7m - 8m          : kinery's server   : DONE : STARTED 23/05/2022 08:24 : FINISHED 23/05/2022 10:56 : RECEIVED
+8m - 9m          : me                : DONE : STARTED 23/05/2022 16:29 : FINISHED 23/05/2022 18:27
+9m - 10m         : kinery's server   : DONE : STARTED 23/05/2022 17:30 : FINISHED 23/05/2022 18:37 : RECEIVED
+10m - 11m        : kinery's server   : DONE : STARTED 23/05/2022 20:41 : FINISHED 23/05/2022 21:46 : RECEIVED
+11m - 14m        : kinery's server   : DONE : STARTED 23/05/2022 23:07 : FINISHED 24/05/2022 03:09 : RECEIVED
+14m - 15m        : kinery's server   : DONE : STARTED 24/05/2022 06:04 : FINISHED 24/05/2022 07:20 : RECEIVED
+15m - 16m        : kinery's server   : DONE : STARTED 24/05/2022 14:36 : FINISHED 24/05/2022 15:39 : RECEIVED
+16m - 18m        : kinery's server   : DONE : STARTED 24/05/2022 16:00 : FINISHED 24/05/2022 17:57 : RECEIVED
+18m - 20m        : my server         : DONE : STARTED 24/05/2022 16:07 : FINISHED 24/05/2022 19:48 (3 hours 41 minutes)  : RECEIVED
+20m - 22m        : my server         : DONE : STARTED 24/05/2022 20:16 : FINISHED 24/05/2022 23:10 (2 hours 54 minutes)  : RECEIVED 
+22m - 24m        : my server         : DONE : STARTED 24/05/2022 23:24 : FINISHED 25/05/2022 01:30 (2 hours 6 minutes)   : RECEIVED 
+24m - 30m        : my server         : DONE : STARTED 25/05/2022 05:59 : FINISHED 25/05/2022 12:02 (6 hours 3 minutes)   : RECEIVED 
+30m - 35m        : my server         : DONE : STARTED 25/05/2022 12:25 : FINISHED 25/05/2022 17:24 (4 hours 59 minutes)  : RECEIVED 
+35m - 36m        : my server         : DONE : STARTED 26/05/2022 13:49 : FINISHED 25/05/2022 14:46 (57 minutes)          : RECEIVED 
+36m - 40m        : my server         : DONE : STARTED 26/05/2022 15:06 : FINISHED 25/05/2022 19:00 (4 hours 54 minutes)  : RECEIVED 
+40m - 55m        : my server         : DONE : STARTED 25/05/2022 17:32 : FINISHED 26/05/2022 12:59 (15 hours 27 minutes) : RECEIVED
+55m - 67m        : my server         : DONE : STARTED 26/05/2022 19:13 : FINISHED 27/05/2022 06:35 (11 hours 22 minutes) : RECEIVED 
+67m - 68m        : hitius            : DONE : STARTED 26/05/2022 19:29 : FINISHED 26/05/2022 20:27 (58 minutes)          : RECEIVED
+68m - 70m        : hitius            : DONE : STARTED 26/05/2022 20:29 : FINISHED 26/05/2022 22:20 (51 minutes)          : RECEIVED
+70m - 71m        : hitius            : DONE : STARTED 26/05/2022 22:26 : FINISHED 27/05/2022 03:23 (4 hours 57 minutes)  : RECEIVED
+71m - 72m        : hitius            : DONE : STARTED 27/05/2022 03:24 : FINISHED 27/05/2022 05:34 (2 hours 10 minutes)  : RECEIVED
+72m - 73m        : hitius            : DONE : STARTED 27/05/2022 06:12 : FINISHED 27/05/2022 07:25 (1 hour 13 minutes)   : RECEIVED
+73m - 83m        : my server         : DONE : STARTED 27/05/2022 07:31 : FINISHED 27/05/2022 18:03 (12 hours 22 minutes) : RECEIVED
+83m - 87.5m      : hitius            : DONE : STARTED 27/05/2022 07:31 : FINISHED 27/05/2022 18:30 (12 hours 59 minutes) : RECEIVED
+87.5m - 88m      : trout             : DONE : STARTED 27/05/2022 20:18 : FINISHED 27/05/2022 20:52 (34 minutes)          : RECEIVED
+88m - 93m        : my server         : DONE : STARTED 28/05/2022 06:44 : FINISHED 28/05/2022 12:08 (5 hours 24 minutes)  : RECEIVED
+93m - 100m       : my server         : DONE : STARTED 27/05/2022 18:29 : FINISHED 28/05/2022 01:26 (6 hours 57 minutes)  : RECEIVED
+100m - 103501935 : my server         : DONE : STARTED 28/05/2022 12:14 : FINISHED 28/05/2022 15:44 (3 hours 30 minutes)  : RECEIVED
+
+103501935 - 115m : my server         : DONE : STARTED 30/05/2022 20:24 : FINISHED 31/05/2022 07:43 (11 hours 19 minutes) : PENDING
+115m - 140m      : my server         : DONE : STARTED 31/05/2022 09:49 : FINISHED 01/06/2022 10:31 (12 hours 42 minutes) : PENDING
+140m - 151651582 : my server         : PENDING : STARTED 01/06/2022 11:17 : FINISHED 01/06/2022 23:47 : PENDING (roblox disabled the sets api lol ...oops - now the insert tool and stamper tool is broken)
+
+15m - 18m      : kinery's server   : FAILED : STARTED 24/05/2022 07:30 : Machine rebooted unexpectedly
+20m - 22m      : kinerys's server  : FAILED : STARTED 24/05/2022 18:42 : Machine rebooted unexpectedly
+35m - 40m      : jack's server     : FAILED : STARTED 25/05/2022 13:04 : piece of shit is too slow
+35m - 36m      : hitius' server    : FAILED : STARTED 25/05/2022 19:39 : too slow
+
+last id to register in 2014: 75504920
+last id to register in 2015: 103501935
+last id to register in 2016: 205283462
