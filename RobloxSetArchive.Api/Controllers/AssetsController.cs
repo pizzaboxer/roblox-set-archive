@@ -8,7 +8,7 @@ using System.Text.Json;
 namespace RobloxSetArchive.Api.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class AssetsController : ControllerBase
 {
     private readonly IHttpClientFactory _httpClientFactory;

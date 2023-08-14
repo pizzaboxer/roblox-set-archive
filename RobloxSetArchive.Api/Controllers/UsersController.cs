@@ -8,7 +8,7 @@ using System.Text.Json;
 namespace RobloxSetArchive.Api.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class UsersController : ControllerBase
 {
     private readonly ApplicationDbContext _dbContext;

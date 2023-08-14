@@ -8,7 +8,7 @@ using RobloxSetArchive.Api.Data.Entities;
 namespace RobloxSetArchive.Api.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class SetsController : ControllerBase
 {
     private readonly ApplicationDbContext _dbContext;
