@@ -1,6 +1,6 @@
 // file:///home/pizzaboxer/Documents/Projects/RobloxSetArchive/dotnet-vue/RobloxSetArchive.Api/Controllers/SetsController.cs {"mtime":1671326046090,"ctime":1670195457130,"size":4605,"etag":"39pmmlnen4oh","orphaned":false,"typeId":""}
 using Microsoft.AspNetCore.Mvc;
-using RobloxSetArchive.Api;
+using Microsoft.Extensions.Caching.Memory;
 using RobloxSetArchive.Api.Models;
 using RobloxSetArchive.Api.Data;
 using RobloxSetArchive.Api.Data.Entities;
@@ -12,10 +12,12 @@ namespace RobloxSetArchive.Api.Controllers;
 public class SetsController : ControllerBase
 {
     private readonly ApplicationDbContext _dbContext;
+    private readonly IMemoryCache _memoryCache;
 
-    public SetsController(ApplicationDbContext dbContext)
+    public SetsController(ApplicationDbContext dbContext, IMemoryCache memoryCache)
     {
         _dbContext = dbContext;
+        _memoryCache = memoryCache;
     }
 
     [HttpGet("Search")]
@@ -45,14 +47,23 @@ public class SetsController : ControllerBase
     [HttpGet("{id}/Assets")]
     public ActionResult<EnumerableResponseModel<Asset>> GetAssets(int id, int page = 1)
     {
-        AssetSet? assetSet = _dbContext.AssetSets.Find(id);
+        string cacheKey = $"Set_Assets_{id}_{page}";
 
-        if (assetSet is null)
-            return NotFound();
+        if (!_memoryCache.TryGetValue(cacheKey, out EnumerableResponseModel<Asset>? data) || data is null)
+        {
+            AssetSet? assetSet = _dbContext.AssetSets.Find(id);
 
-        IQueryable<Asset> assets = _dbContext.Assets.Where(x => x.AssetSetId == id);
+            if (assetSet is null)
+                return NotFound();
 
-        return Ok(new EnumerableResponseModel<Asset>(assets, 24, page));
+            IQueryable<Asset> assets = _dbContext.Assets.Where(x => x.AssetSetId == id);
+
+            data = new EnumerableResponseModel<Asset>(assets, 24, page);
+
+            _memoryCache.Set(cacheKey, data);
+        }
+
+        return Ok(data);
     }
 
     [HttpGet("{id}/Subscribers")]

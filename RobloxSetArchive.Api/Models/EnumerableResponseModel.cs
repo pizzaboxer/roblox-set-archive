@@ -20,7 +20,7 @@ public class EnumerableResponseModel<T>
         if (startingIndex >= ItemCount)
             return;
 
-        Items = query.Skip(startingIndex).Take(maxItems);
+        Items = query.Skip(startingIndex).Take(maxItems).ToList();
         FirstItem = startingIndex + 1;
         LastItem = startingIndex + Items.Count();
     }

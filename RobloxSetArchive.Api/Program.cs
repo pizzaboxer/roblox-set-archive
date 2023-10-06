@@ -12,6 +12,7 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddMemoryCache();
 builder.Services.AddDbContext<ApplicationDbContext>();
 builder.Services.AddHttpClient("Roblox", httpClient => 
 {

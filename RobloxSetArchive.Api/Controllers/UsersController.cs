@@ -1,5 +1,6 @@
 // file:///home/pizzaboxer/Documents/Projects/RobloxSetArchive/dotnet-vue/RobloxSetArchive.Api/Controllers/UsersController.cs {"mtime":1671327149371,"ctime":1671139646636,"size":2617,"etag":"39pmo91as2md","orphaned":false,"typeId":""}
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using RobloxSetArchive.Api.Models;
 using RobloxSetArchive.Api.Data;
 using RobloxSetArchive.Api.Data.Entities;
@@ -13,11 +14,13 @@ public class UsersController : ControllerBase
 {
     private readonly ApplicationDbContext _dbContext;
     private readonly IHttpClientFactory _httpClientFactory;
+    private readonly IMemoryCache _memoryCache;
 
-    public UsersController(ApplicationDbContext dbContext, IHttpClientFactory httpClientFactory)
+    public UsersController(ApplicationDbContext dbContext, IHttpClientFactory httpClientFactory, IMemoryCache memoryCache)
     {
         _dbContext = dbContext;
         _httpClientFactory = httpClientFactory;
+        _memoryCache = memoryCache;
     }
 
     [HttpGet("Search")]
@@ -65,32 +68,29 @@ public class UsersController : ControllerBase
     [HttpGet("{id}/Thumbnail")]
     public async Task<IActionResult> GetThumbnail(long id)
     {
-        // HttpClient httpClient = _httpClientFactory.CreateClient("Roblox");
-        // HttpResponseMessage httpResponseMessage = await httpClient.GetAsync($"/avatar/request-thumbnail-fix?userId={id}&imageFormat=Png&thumbnailFormatId=254&dummy=false");
+        string cacheKey = $"User_Thumbnail_{id}";
 
-        // if (!httpResponseMessage.IsSuccessStatusCode)
-        //     return StatusCode((int)httpResponseMessage.StatusCode);
+        if (!_memoryCache.TryGetValue(cacheKey, out string? thumbnailUrl) || thumbnailUrl is null)
+        {
+            HttpClient httpClient = _httpClientFactory.CreateClient("Roblox");
+            HttpResponseMessage httpResponseMessage = await httpClient.GetAsync($"/avatar-thumbnails?params=[{{userId:{id},imageSize:\"large\"}}]");
 
-        // string response = await httpResponseMessage.Content.ReadAsStringAsync();
-        // ThumbnailApiModel? thumbnail = JsonSerializer.Deserialize<ThumbnailApiModel>(response);
+            if (!httpResponseMessage.IsSuccessStatusCode)
+                return StatusCode((int)httpResponseMessage.StatusCode);
 
-        // if (thumbnail is null)
-        //     return NotFound();
+            string response = await httpResponseMessage.Content.ReadAsStringAsync();
+            List<ThumbnailApiModel>? thumbnails = JsonSerializer.Deserialize<List<ThumbnailApiModel>>(response);
 
-        // return Redirect(thumbnail.d.url);
+            if (thumbnails is null || thumbnails.Count < 1)
+                return NotFound();
 
-        HttpClient httpClient = _httpClientFactory.CreateClient("Roblox");
-        HttpResponseMessage httpResponseMessage = await httpClient.GetAsync($"/avatar-thumbnails?params=[{{userId:{id},imageSize:\"large\"}}]");
+            thumbnailUrl = thumbnails[0].thumbnailUrl;
 
-        if (!httpResponseMessage.IsSuccessStatusCode)
-            return StatusCode((int)httpResponseMessage.StatusCode);
+            var cacheOptions = new MemoryCacheEntryOptions().SetAbsoluteExpiration(DateTime.Now.AddDays(1));
 
-        string response = await httpResponseMessage.Content.ReadAsStringAsync();
-        List<ThumbnailApiModel>? thumbnails = JsonSerializer.Deserialize<List<ThumbnailApiModel>>(response);
+            _memoryCache.Set(cacheKey, thumbnailUrl, cacheOptions);
+        }
 
-        if (thumbnails is null || thumbnails.Count < 1)
-            return NotFound();
-
-        return Redirect(thumbnails[0].thumbnailUrl);
+        return Redirect(thumbnailUrl);
     }
 }
