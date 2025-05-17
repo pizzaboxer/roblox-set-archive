@@ -19,6 +19,11 @@ builder.Services.AddHttpClient("Roblox", httpClient =>
     httpClient.BaseAddress = new Uri("https://www.roblox.com");
     httpClient.DefaultRequestHeaders.Add("User-Agent", "Roblox/WinInet");
 });
+builder.Services.AddHttpClient("RobloxThumbnails", httpClient => 
+{
+    httpClient.BaseAddress = new Uri("https://thumbnails.roblox.com");
+    httpClient.DefaultRequestHeaders.Add("User-Agent", "Roblox/WinInet");
+});
 
 var app = builder.Build();
 
