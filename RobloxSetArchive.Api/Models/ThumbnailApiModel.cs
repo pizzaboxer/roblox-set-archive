@@ -1,17 +1,23 @@
+using System.Text.Json.Serialization;
+
 namespace RobloxSetArchive.Api.Models;
 
-// class ThumbnailApiModel
-// {
-//     public ThumbnailApiModelContents d { get; set;}
-// }
-
-// class ThumbnailApiModelContents
-// {
-//     public bool final { get; set; }
-//     public string url { get; set; } = null!;
-// }
-
-class ThumbnailApiModel
+public class ThumbnailApiModel
 {
-    public string thumbnailUrl { get; set; } = null!;
+    public List<ThumbnailApiModelContents> Data { get; set; } = new();
+}
+
+public class ThumbnailApiModelContents
+{
+    [JsonPropertyName("targetId")]
+    public int TargetId { get; set; }
+
+    [JsonPropertyName("state")]
+    public string State { get; set; } = "";
+
+    [JsonPropertyName("imageUrl")]
+    public string ImageUrl { get; set; } = "";
+
+    [JsonPropertyName("version")]
+    public string Version { get; set; } = "";
 }
