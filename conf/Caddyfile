@@ -1,7 +1,8 @@
 sets.pizzaboxer.xyz {
         rewrite /Game/Tools/InsertAsset.ashx* /api/sets/luawebservice?{query}
 
-        handle /api/* {
+        @api path /api /api/*
+        handle @api {
                 reverse_proxy 127.0.0.1:5001
         }
 
