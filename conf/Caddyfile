@@ -1,0 +1,13 @@
+sets.pizzaboxer.xyz {
+        rewrite /Game/Tools/InsertAsset.ashx* /api/sets/luawebservice?{query}
+
+        handle /api/* {
+                reverse_proxy 127.0.0.1:5001
+        }
+
+        handle {
+                root * /var/www/pizzaboxer.xyz/sets/web
+                try_files {path}.html {path} /index.html
+                file_server
+        }
+}
